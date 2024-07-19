@@ -1,9 +1,12 @@
 <?php
 
+
 namespace App\Models;
+
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Movie;
+
 
 class Actor extends Model
 {
@@ -13,7 +16,9 @@ class Actor extends Model
     public $incrementing = false;
     public $timestamps = false;
 
+
     public function movies(){
-        return $this->belongsToMany(Movie::class);
+        return $this->belongsToMany(Movie::class, 'actor_movie', 'act_id', 'mov_id');
     }
+
 }
